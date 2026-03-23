@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-powered Accessibility Analyzer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS FILE -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>AI-powered Accessibility Analyzer</h1>
+    <p class="subtitle">
+      Paste HTML and detect accessibility issues based on WCAG guidelines
+    </p>
+
+    <!-- INPUT SECTION -->
+    <div class="card">
+      <h2>Paste HTML</h2>
+
+      <textarea id="htmlInput" placeholder="Paste your HTML here..."></textarea>
+
+      <div class="actions">
+        <button class="primary" onclick="analyze()">Analyze</button>
+        <button class="secondary" onclick="loadSample()">Load Sample</button>
+        <button class="secondary" onclick="clearAll()">Clear</button>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="card">
+      <h2>Summary</h2>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="label">Score</span>
+          <span id="score" class="value">100</span>
+        </div>
+
+        <div class="stat">
+          <span class="label">Issues</span>
+          <span id="issueCount" class="value">0</span>
+        </div>
+
+        <div class="stat">
+          <span class="label">WCAG Alerts</span>
+          <span id="wcagCount" class="value">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS + SUGGESTIONS -->
+    <div class="panel">
+
+      <!-- LEFT: ISSUES -->
+      <div class="card">
+        <h2>Issues & Suggestions</h2>
+        <div id="results"></div>
+      </div>
+
+      <!-- RIGHT: SCREEN READER -->
+      <div class="card">
+        <h2>Screen Reader Simulation</h2>
+        <div id="screenReader" class="sr-output">
+          Run analysis to see output
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Hidden iframe for contrast checking -->
+  <iframe id="previewFrame" style="display:none;"></iframe>
+
+  <!-- JS FILE -->
+  <script src="script.js"></script>
+
+</body>
+</html>
